@@ -27,12 +27,6 @@ await sentenceRepository.createIndex();
 //SEARCH FOR A RHYME
 app.get("/search-rhyme/:word", async (req, res) => {
   if (req.params && req.params.word) {
-    // const rhyme = await sentenceRepository
-    //   .search()
-    //   .where("wordEnding")
-    //   .does.match(req.params.word)
-    //   .returnFirst();
-
     const rhymes = await sentenceRepository
       .search()
       .where("wordEnding")
@@ -65,7 +59,6 @@ app.post("/add-new", async (req, res) => {
 
 //RETURNS ALL EXISTING SENTENCES
 app.get("/return-all", async (req, res) => {
-  //await sentenceRepository.remove("01GBJKNM0VKAKSPX49PEDZ3K1S");
   res.send(await sentenceRepository.search().returnAll());
 });
 

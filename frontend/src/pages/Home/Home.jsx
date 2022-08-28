@@ -45,7 +45,7 @@ const Home = () => {
         ? userResponse.slice(-2)
         : userResponse.slice(-3);
 
-      //Get Rhymes
+      //Get rhymes
       const response = await fetch(
         ENDPOINTS.BASE_URL + ENDPOINTS.SEARCH_RHYME + wordEnding,
         {
@@ -172,7 +172,6 @@ const Home = () => {
                           sx={{
                             padding: 1,
                             backgroundColor: "#d4f6cc",
-                            // backgroundColor: "#d0f6e1",
                             borderRadius: 3,
                           }}
                         >

@@ -10,9 +10,6 @@ export const sentenceSchema = new Schema(
     },
     wordEnding: {
       type: "string",
-      //   matcher: "dm:en",
-      //   stemming: "false",
-      //   index: "true",
     },
   },
   {
