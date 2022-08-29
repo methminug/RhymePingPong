@@ -62,6 +62,7 @@ app.get("/return-all", async (req, res) => {
   res.send(await sentenceRepository.search().returnAll());
 });
 
-app.listen(8000, () => {
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
   console.log("Server is up and running");
 });
