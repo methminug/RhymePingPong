@@ -81,17 +81,17 @@ const Home = () => {
       }
 
       //Save user response
-      // const savedResponse = await fetch(
-      //   ENDPOINTS.BASE_URL + ENDPOINTS.ADD_NEW,
-      //   {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify({
-      //       string: userResponse.toLowerCase(),
-      //       wordEnding: wordEnding,
-      //     }),
-      //   }
-      // );
+      const savedResponse = await fetch(
+        ENDPOINTS.BASE_URL + ENDPOINTS.ADD_NEW,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            string: userResponse.toLowerCase(),
+            wordEnding: wordEnding,
+          }),
+        }
+      );
     } else {
       setError(true);
     }
