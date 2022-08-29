@@ -1,0 +1,21 @@
+{
+    "app_name": "Rhyme Ping Pong",  
+    "description": "Play ping pong, but with rhymes!", 
+    "hidden": "true", 
+    "rank": "30", 
+    "type": "Full App",
+    "contributed_by": "Community", 
+    "repo_url": "https://github.com/methminug/RhymePingPong", 
+    "download_url": "https://github.com/methminug/RhymePingPong/archive/refs/heads/master.zip",
+    "hosted_url": "", 
+    "language": ["JavaScript"], 
+    "redis_commands": [],
+    "redis_features": ["Primary database"],
+    "redis_modules": ["RediJSON"], 
+    "app_image_urls": [
+    ], 
+    "youtube_url": "", 
+    "special_tags": ["Hackathon"], 
+    "verticals": [],
+    "markdown": "" 
+}
