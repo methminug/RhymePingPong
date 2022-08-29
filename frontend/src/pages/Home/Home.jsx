@@ -110,11 +110,12 @@ const Home = () => {
         </Toolbar>
       </AppBar>
       <Grid container direction="row" className="content-padding">
-        <Grid
-          container
+        <Box
+          component={Grid}
           item
-          direction="column"
+          display={{ md: "block", xs: "none" }}
           md={3}
+          xs={1}
           className={styles.column}
         >
           <img
@@ -122,54 +123,82 @@ const Home = () => {
             className={styles.logo}
             style={{ width: 250, marginTop: 100 }}
           />
-        </Grid>
-        <Grid
-          container
+        </Box>
+        <Box
+          component={Grid}
           item
           direction="column"
           className={styles.centerColumn}
           md={6}
-          spacing={4}
+          xs={12}
         >
           <Paper
             elevation={10}
             sx={{
               width: "100%",
-              height: "70%",
+              height: "70vh",
               backgroundColor: "#383e8c",
               borderRadius: 2,
               overflow: "hidden",
             }}
           >
             <Box
+              display={{ md: "block", xs: "none" }}
+              component={Grid}
               sx={{
-                width: "5px",
-                height: "73.5vh",
-                backgroundColor: "white",
+                width: "50%",
+                height: "70vh",
                 position: "absolute",
-                zIndex: 2000,
-                top: "13%",
-                left: "49%",
               }}
-            />
-            <div style={{ height: "73.5vh", paddingBottom: 15 }}>
-              <Stack
+            >
+              <Box
                 sx={{
+                  width: "5px",
                   height: "100%",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  alignContent: "flex-end",
+                  backgroundColor: "white",
+                  position: "relative",
+                  left: "50%",
                 }}
-              >
-                <Container>
-                  {chatBubbles.map((chatText, index) =>
-                    index % 2 === 0 ? (
-                      <Grid
-                        container
-                        direction="row"
-                        display="flex"
-                        justifyContent="flex-end"
-                      >
+              />
+            </Box>
+            <Box
+              display={{ md: "none", xs: "block" }}
+              component={Grid}
+              sx={{
+                width: "100%",
+                height: "70vh",
+                position: "absolute",
+              }}
+            >
+              <Box
+                sx={{
+                  width: "5px",
+                  height: "100%",
+                  backgroundColor: "white",
+                  position: "relative",
+                  left: "50%",
+                }}
+              />
+            </Box>
+            <Stack
+              sx={{
+                height: "70vh",
+                display: "flex",
+                justifyContent: "flex-end",
+                alignContent: "flex-end",
+                paddingBottom: 3,
+              }}
+            >
+              <Container>
+                {chatBubbles.map((chatText, index) =>
+                  index % 2 === 0 ? (
+                    <Box
+                      container
+                      direction="row"
+                      display="flex"
+                      justifyContent="flex-end"
+                    >
+                      <Box component={Grid} xs={5}>
                         <Paper
                           elevation={1}
                           sx={{
@@ -180,9 +209,11 @@ const Home = () => {
                         >
                           <Typography key={index}>{chatText} 🏓</Typography>
                         </Paper>
-                      </Grid>
-                    ) : (
-                      <Grid container direction="row">
+                      </Box>
+                    </Box>
+                  ) : (
+                    <Box container direction="row">
+                      <Box component={Grid} xs={5}>
                         <Paper
                           elevation={1}
                           sx={{
@@ -193,12 +224,12 @@ const Home = () => {
                         >
                           <Typography key={index}>🏓 {chatText}</Typography>
                         </Paper>
-                      </Grid>
-                    )
-                  )}
-                </Container>
-              </Stack>
-            </div>
+                      </Box>
+                    </Box>
+                  )
+                )}
+              </Container>
+            </Stack>
           </Paper>
           <form
             onSubmit={submitResponse}
@@ -227,20 +258,20 @@ const Home = () => {
               setError(false);
             }}
           />
-        </Grid>
-        <Grid
-          container
+        </Box>
+        <Box
+          component={Grid}
           item
-          direction="column"
+          display={{ md: "block", xs: "none" }}
           md={3}
+          xs={1}
           className={styles.rightColumn}
         >
           <img
             src={rightColImg}
-            className={styles.logo}
-            style={{ width: 250 }}
+            style={{ width: 250, marginTop: "100%", marginLeft: "20%" }}
           />
-        </Grid>
+        </Box>
       </Grid>
     </React.Fragment>
   );
