@@ -29,12 +29,14 @@ const Home = () => {
   const [userResponse, setUserResponse] = useState("");
 
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const vowels = ["a", "e", "i", "o", "u"];
 
   const submitResponse = async (event) => {
     event.preventDefault();
     setError(false);
+    setLoading(true);
     if (userResponse.length > 4 && /^[a-zA-Z ]+$/.test(userResponse)) {
       setChatBubbles((currentChat) => [...currentChat, userResponse]);
       setUserResponse("");
@@ -47,12 +49,18 @@ const Home = () => {
 
       //Get rhymes
       const response = await fetch(
-        ENDPOINTS.BASE_URL + ENDPOINTS.SEARCH_RHYME + wordEnding,
+        ENDPOINTS.BASE_URL +
+          ENDPOINTS.SEARCH_RHYME +
+          wordEnding +
+          "/" +
+          userResponse.toLowerCase(),
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         }
       );
+
+      setLoading(false);
 
       if (response.status !== 404) {
         const rhymes = await response.json();
@@ -73,17 +81,17 @@ const Home = () => {
       }
 
       //Save user response
-      const savedResponse = await fetch(
-        ENDPOINTS.BASE_URL + ENDPOINTS.ADD_NEW,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            string: userResponse.toLowerCase(),
-            wordEnding: wordEnding,
-          }),
-        }
-      );
+      // const savedResponse = await fetch(
+      //   ENDPOINTS.BASE_URL + ENDPOINTS.ADD_NEW,
+      //   {
+      //     method: "POST",
+      //     headers: { "Content-Type": "application/json" },
+      //     body: JSON.stringify({
+      //       string: userResponse.toLowerCase(),
+      //       wordEnding: wordEnding,
+      //     }),
+      //   }
+      // );
     } else {
       setError(true);
     }
@@ -256,6 +264,14 @@ const Home = () => {
             message="Please enter a sentence with no numbers or special characters."
             onClose={(e) => {
               setError(false);
+            }}
+          />
+
+          <Snackbar
+            open={loading}
+            message="RHYMING . . ."
+            onClose={(e) => {
+              setLoading(false);
             }}
           />
         </Box>
