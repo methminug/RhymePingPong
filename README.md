@@ -100,7 +100,7 @@ The data (sentences received) is stored in as a JSON data structure and a senten
 2. Run `npm install`.
 3. Create a free account on [Redis Cloud](https://redis.info/try-free-dev-to) and create your database.
 4. Create a new user for the database.
-5. In a `.env` file in the root of `/backend`, add the values for:
+5. In a `.env` file in the root of `/backend` folder, add the values for:
 
 ```
 REDIS_DB_ENDPOINT=<Public endpoint>
