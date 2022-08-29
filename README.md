@@ -37,6 +37,8 @@ The data (sentences received) is stored in as a JSON data structure and a senten
       .search()
       .where("wordEnding")
       .equals(req.params.word)
+      .and("sentenceString")
+      .not.equals(req.params.sentence)
       .return.all();
 ```
 
