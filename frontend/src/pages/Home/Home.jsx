@@ -101,7 +101,10 @@ const Home = () => {
               }}
             />
           </Box>
-          <IconButton target="_blank" href="https://github.com/methminug">
+          <IconButton
+            target="_blank"
+            href="https://github.com/methminug/RhymePingPong"
+          >
             <Avatar src={toolBarIcon1} />
           </IconButton>
         </Toolbar>
