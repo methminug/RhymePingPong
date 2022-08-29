@@ -16,7 +16,7 @@ Go back and forth with rhymes instead of a ping pong ball in this game and see i
 
 ## How it works
 
-New sentences input by the user are stored along with the word ending of the sentence’s final word, which is then used to query for a rhyming sentence each time a user input a new sentence.
+New sentences input by the user are stored along with the word ending of the sentence’s final word, which is then used to query for a rhyming sentence each time a user inputs a new sentence.
 
 ### How the data is stored:
 
@@ -89,8 +89,8 @@ The data (sentences received) is stored in as a JSON data structure and a senten
 
 ```
 REDIS_DB_ENDPOINT=<Public endpoint>
-REDIS_USER=<Databas user's name>
-REDIS_PWD=<Databas user's password>
+REDIS_USER=<Database user's name>
+REDIS_PWD=<Database user's password>
 ```
 
 6. Run `npm start`
