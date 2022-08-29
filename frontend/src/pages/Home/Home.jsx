@@ -36,7 +36,6 @@ const Home = () => {
   const submitResponse = async (event) => {
     event.preventDefault();
     setError(false);
-    setLoading(true);
     if (userResponse.length > 4 && /^[a-zA-Z ]+$/.test(userResponse)) {
       setChatBubbles((currentChat) => [...currentChat, userResponse]);
       setUserResponse("");
@@ -46,6 +45,8 @@ const Home = () => {
       )
         ? userResponse.slice(-2)
         : userResponse.slice(-3);
+
+      setLoading(true);
 
       //Get rhymes
       const response = await fetch(
