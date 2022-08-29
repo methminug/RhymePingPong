@@ -25,12 +25,14 @@ await sentenceRepository.dropIndex();
 await sentenceRepository.createIndex();
 
 //SEARCH FOR A RHYME
-app.get("/search-rhyme/:word", async (req, res) => {
-  if (req.params && req.params.word) {
+app.get("/search-rhyme/:word/:sentence", async (req, res) => {
+  if (req.params && req.params.word && req.params.sentence) {
     const rhymes = await sentenceRepository
       .search()
       .where("wordEnding")
       .equals(req.params.word)
+      .and("sentenceString")
+      .not.equals(req.params.sentence)
       .return.all();
 
     if (rhymes.length > 0) {
